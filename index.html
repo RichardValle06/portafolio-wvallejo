@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter Vallejo | Sistemas Inteligentes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__brand">WV</div>
+            <ul class="nav__menu">
+                <li><a href="#inicio"      class="nav__link">Inicio</a></li>
+                <li><a href="#sobre-mi"    class="nav__link">Sobre mí</a></li>
+                <li><a href="#habilidades" class="nav__link">Habilidades</a></li>
+                <li><a href="#proyectos"   class="nav__link">Proyectos</a></li>
+                <li><a href="#contacto"    class="nav__link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ===================== INICIO / HERO ===================== -->
+        <section class="hero" id="inicio">
+            <div class="hero__dots" aria-hidden="true"></div>
+            <div class="hero__glow" aria-hidden="true"></div>
+            <div class="container hero__content">
+                <div class="hero__text">
+                    <span class="hero__eyebrow">¡Hola, bienvenido! Soy</span>
+                    <h1 class="hero__name">Walter<br>Vallejo</h1>
+                    <p class="hero__role">Estudiante de Ing. en Sistemas Inteligentes</p>
+                    <p class="hero__desc">Estudiante de Ingeniería en Sistemas Inteligentes en la Universidad Tecnológica ECOTEC, Guayaquil. Apasionado por la tecnología, la IA y el desarrollo de software.</p>
+                    <div class="hero__cta">
+                        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+                        <a href="#contacto"  class="btn btn--outline">Contáctame</a>
+                    </div>
+                </div>
+                <div class="hero__avatar-wrap">
+                    <div class="hero__avatar-ring">
+                        <!--
+                            INSTRUCCIÓN: Pon tu foto real en la carpeta img/ con el nombre perfil.jpg
+                            Si no colocas la imagen, se mostrarán las iniciales WV automáticamente.
+                        -->
+                        <img
+                            src="img/perfil.jpg"
+                            alt="Walter Richard Vallejo Montero"
+                            class="hero__avatar"
+                            onerror="this.style.display='none'; document.getElementById('avatar-placeholder').style.display='flex';"
+                        >
+                        <div class="hero__avatar-placeholder" id="avatar-placeholder">WV</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__scroll-hint" aria-hidden="true">
+                <span>Scroll</span>
+                <div class="hero__scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ===================== SOBRE MÍ ===================== -->
+        <section class="section sobre-mi" id="sobre-mi">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Conóceme</span>
+                    <h2 class="section__title">Sobre mí</h2>
+                </div>
+                <div class="sobre-mi__grid">
+                    <div class="sobre-mi__text">
+                        <p>Soy <strong>Walter Richard Vallejo Montero</strong>, estudiante de Ingeniería en
+                        Sistemas Inteligentes en la <strong>Universidad Tecnológica ECOTEC</strong>,
+                        Guayaquil, Ecuador. Me formo en programación, bases de datos, redes y
+                        desarrollo de software con enfoque en soluciones tecnológicas innovadoras.</p>
+
+                        <p>Me apasiona la tecnología y el desarrollo de sistemas. Mis intereses incluyen
+                        la inteligencia artificial, el análisis de datos, la programación y la construcción
+                        de soluciones digitales que generen impacto real en los procesos y las personas.</p>
+
+                        <p>Mi objetivo profesional es desarrollarme como ingeniero de sistemas capaz de
+                        diseñar e implementar soluciones tecnológicas inteligentes, contribuyendo a la
+                        transformación digital de organizaciones en Ecuador y la región.</p>
+                    </div>
+                    <div class="sobre-mi__cards">
+                        <article class="info-card">
+                            <span class="info-card__icon">🎓</span>
+                            <h3>Formación</h3>
+                            <p>Ing. en Sistemas Inteligentes — ECOTEC</p>
+                        </article>
+                        <article class="info-card">
+                            <span class="info-card__icon">📍</span>
+                            <h3>Ubicación</h3>
+                            <p>Guayaquil, Ecuador</p>
+                        </article>
+                        <article class="info-card">
+                            <span class="info-card__icon">🎯</span>
+                            <h3>Especialidad</h3>
+                            <p>Sistemas Inteligentes &amp; Desarrollo de Software</p>
+                        </article>
+                        <article class="info-card">
+                            <span class="info-card__icon">💡</span>
+                            <h3>Intereses</h3>
+                            <p>IA, programación, análisis de datos y tecnología</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== HABILIDADES ===================== -->
+        <section class="section habilidades" id="habilidades">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Competencias</span>
+                    <h2 class="section__title">Habilidades</h2>
+                </div>
+                <div class="skills__grid">
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">HTML &amp; CSS</span>
+                            <span class="skill-bar__pct">80%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">SQL Server</span>
+                            <span class="skill-bar__pct">85%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">Programación</span>
+                            <span class="skill-bar__pct">80%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">GitHub</span>
+                            <span class="skill-bar__pct">75%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">Análisis de Datos</span>
+                            <span class="skill-bar__pct">82%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 82%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">Inteligencia Artificial</span>
+                            <span class="skill-bar__pct">70%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">Diseño Web</span>
+                            <span class="skill-bar__pct">75%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-bar__info">
+                            <span class="skill-bar__name">Trabajo en Equipo</span>
+                            <span class="skill-bar__pct">95%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target: 95%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PROYECTOS ===================== -->
+        <section class="section proyectos" id="proyectos">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Trabajos</span>
+                    <h2 class="section__title">Proyectos</h2>
+                </div>
+                <div class="projects__grid">
+
+                    <!--
+                        INSTRUCCIÓN: Reemplaza img/proyecto1.jpg con una captura de tu proyecto.
+                    -->
+                    <article class="project-card">
+                        <div class="project-card__img-wrap project-card__img-wrap--1">
+                            <img src="img/proyecto1.jpg" alt="Análisis EDA Exportaciones" class="project-card__img">
+                            <div class="project-card__overlay">
+                                <a href="#" class="project-card__link">Ver proyecto →</a>
+                            </div>
+                        </div>
+                        <div class="project-card__body">
+                            <span class="project-card__tag">SQL Server · EDA</span>
+                            <h3 class="project-card__title">Análisis EDA — Exportaciones No Petroleras del Ecuador</h3>
+                            <p class="project-card__desc">Exploración de datos (EDA) de las exportaciones ecuatorianas no petroleras de los últimos 5 años con SQL: CTEs, funciones de ventana RANK/LAG e índice HHI de concentración de mercado.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-card__img-wrap project-card__img-wrap--2">
+                            <img src="img/proyecto2.jpg" alt="Proyecto 2" class="project-card__img">
+                            <div class="project-card__overlay">
+                                <a href="#" class="project-card__link">Ver proyecto →</a>
+                            </div>
+                        </div>
+                        <div class="project-card__body">
+                            <span class="project-card__tag">Sistemas Inteligentes</span>
+                            <h3 class="project-card__title">Proyecto Académico — Sistemas Inteligentes</h3>
+                            <p class="project-card__desc">Proyecto desarrollado en el marco de la carrera de Ingeniería en Sistemas Inteligentes en ECOTEC, aplicando conceptos de programación y análisis de sistemas.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-card__img-wrap project-card__img-wrap--3">
+                            <img src="img/proyecto3.jpg" alt="Portafolio Web" class="project-card__img">
+                            <div class="project-card__overlay">
+                                <a href="https://github.com/RichardValle06/portafolio-wvallejo" class="project-card__link" target="_blank" rel="noopener noreferrer">Ver en GitHub →</a>
+                            </div>
+                        </div>
+                        <div class="project-card__body">
+                            <span class="project-card__tag">HTML · CSS · GitHub</span>
+                            <h3 class="project-card__title">Portafolio Personal Web</h3>
+                            <p class="project-card__desc">Diseño y desarrollo de este portafolio con HTML5 semántico y CSS3: variables CSS, Flexbox, efectos hover y animaciones. Alojado en GitHub Pages.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTACTO ===================== -->
+        <section class="section contacto" id="contacto">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Hablemos</span>
+                    <h2 class="section__title">Contacto</h2>
+                </div>
+                <div class="contact__layout">
+                    <div class="contact__info">
+                        <p class="contact__text">¿Tienes un proyecto en mente o deseas conocer más sobre mi trabajo? Escríbeme, estaré encantado de conversar.</p>
+                        <ul class="contact__list">
+                            <li class="contact__item">
+                                <span class="contact__icon">📧</span>
+                                <span>w.vallejo@ecotec.edu.ec</span>
+                            </li>
+                            <li class="contact__item">
+                                <span class="contact__icon">📍</span>
+                                <span>Guayaquil, Ecuador</span>
+                            </li>
+                            <li class="contact__item">
+                                <span class="contact__icon">🐙</span>
+                                <span>github.com/RichardValle06</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Formulario visual — no envía datos realmente -->
+                    <form class="contact__form" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="tucorreo@ejemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" class="form-textarea" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p class="footer__copy">© 2026 Walter Richard Vallejo Montero</p>
+            <a href="https://github.com/RichardValle06" class="footer__github" target="_blank" rel="noopener noreferrer">
+                Ver perfil en GitHub →
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // ── Smooth scroll para los enlaces de navegación ──
+        document.querySelectorAll('a[href^="#"]').forEach(function(enlace) {
+            enlace.addEventListener('click', function(e) {
+                var destino = document.querySelector(this.getAttribute('href'));
+                if (destino) {
+                    e.preventDefault();
+                    destino.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ── Sombra en el header al hacer scroll ──
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 20) {
+                header.classList.add('header--scrolled');
+            } else {
+                header.classList.remove('header--scrolled');
+            }
+        });
+
+        // ── Animación de barras de habilidades al entrar en viewport ──
+        var skillSection = document.querySelector('.habilidades');
+        if (skillSection && 'IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.25 });
+            observer.observe(skillSection);
+        }
+    </script>
+
+</body>
+</html>
