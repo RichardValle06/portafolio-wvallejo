@@ -22,6 +22,7 @@
     --color-surface:       #FFFFFF;
     --color-border:        #E5E7EB;
     --color-slate:         #94A3B8;
+    --color-heading:       var(--color-dark);
 
     /* Tipografía */
     --font-display: 'Poppins', sans-serif;
@@ -389,7 +390,7 @@ ul {
     font-family: var(--font-display);
     font-size: clamp(1.9rem, 3.5vw, 2.5rem);
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-heading);
 }
 
 /* ─────────────────────────────────────────────────
@@ -491,7 +492,7 @@ ul {
     font-family: var(--font-body);
     font-weight: 600;
     font-size: 0.95rem;
-    color: var(--color-dark);
+    color: var(--color-heading);
 }
 
 .skill-bar__pct {
@@ -607,7 +608,7 @@ ul {
 
 .project-card__link:hover {
     background-color: #fff;
-    color: var(--color-dark);
+    color: var(--color-heading);
 }
 
 .project-card__body {
@@ -628,7 +629,7 @@ ul {
     font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-heading);
     margin-bottom: 0.6rem;
     line-height: 1.4;
 }
@@ -702,7 +703,7 @@ ul {
 .form-label {
     font-size: 0.88rem;
     font-weight: 600;
-    color: var(--color-dark);
+    color: var(--color-heading);
 }
 
 .form-input,
@@ -759,6 +760,170 @@ ul {
 
 .footer__github:hover {
     color: #fff;
+}
+
+/* ─────────────────────────────────────────────────
+   MODO OSCURO
+   Se activa agregando la clase "dark-theme" al <body>
+   mediante JavaScript (ver script.js). Al redefinir las
+   variables CSS aquí, todos los componentes que ya usan
+   var(--color-...) cambian de color automáticamente.
+   ───────────────────────────────────────────────── */
+body.dark-theme {
+    --color-bg:         #0D1224;
+    --color-bg-alt:     #171D36;
+    --color-surface:    #161B2E;
+    --color-border:     #2A3150;
+    --color-text:       #CBD3E8;
+    --color-text-muted: #94A3B8;
+    --color-heading:    #F8FAFF;
+}
+
+body.dark-theme .header {
+    background: rgba(13, 18, 24, 0.88);
+}
+
+body.dark-theme .header--scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-theme .form-input,
+body.dark-theme .form-textarea {
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
+}
+
+/* ─────────────────────────────────────────────────
+   BOTÓN: CAMBIO DE TEMA (modo claro / oscuro)
+   ───────────────────────────────────────────────── */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-alt);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition), background-color var(--transition), border-color var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: rotate(18deg) scale(1.08);
+    border-color: var(--color-primary);
+}
+
+/* ─────────────────────────────────────────────────
+   BOTÓN: FAVORITO EN TARJETAS DE PROYECTO
+   ───────────────────────────────────────────────── */
+.project-card__fav {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(13, 18, 36, 0.55);
+    color: #fff;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition), transform var(--transition), color var(--transition);
+}
+
+.project-card__fav:hover {
+    transform: scale(1.12);
+    background: rgba(13, 18, 36, 0.8);
+}
+
+.project-card__fav.is-favorite {
+    background: var(--color-accent);
+    color: var(--color-dark-2);
+}
+
+/* ─────────────────────────────────────────────────
+   MENSAJE DE RETROALIMENTACIÓN DEL FORMULARIO
+   ───────────────────────────────────────────────── */
+.form-feedback {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: none;
+}
+
+.form-feedback.is-visible {
+    display: block;
+}
+
+.form-feedback.form-feedback--success {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #047857;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.form-feedback.form-feedback--error {
+    background-color: rgba(239, 68, 68, 0.12);
+    color: #B91C1C;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.form-input.input-error,
+.form-textarea.input-error {
+    border-color: #EF4444;
+}
+
+/* ─────────────────────────────────────────────────
+   CONTADOR DE VISITAS (footer)
+   ───────────────────────────────────────────────── */
+.footer__visits {
+    color: var(--color-slate);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* ─────────────────────────────────────────────────
+   BOTÓN: VOLVER AL INICIO
+   ───────────────────────────────────────────────── */
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition), background-color var(--transition);
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--color-primary-dark);
 }
 
 /* ─────────────────────────────────────────────────
