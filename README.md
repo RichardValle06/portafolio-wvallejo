@@ -144,3 +144,10 @@ portafolio-wvallejo/
 Ingeniería en Sistemas Inteligentes — Universidad Tecnológica ECOTEC
 Guayaquil, Ecuador · 2026
 GitHub: [@RichardValle06](https://github.com/RichardValle06)
+
+
+
+## ✔️ Verificación final
+Todas las funcionalidades de JavaScript fueron probadas en el sitio publicado
+en GitHub Pages: modo oscuro, favoritos, validación del formulario y
+persistencia de datos con localStorage. Funcionan correctamente.
