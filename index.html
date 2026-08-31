@@ -22,6 +22,7 @@
                 <li><a href="#proyectos"   class="nav__link">Proyectos</a></li>
                 <li><a href="#contacto"    class="nav__link">Contacto</a></li>
             </ul>
+            <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
         </nav>
     </header>
 
@@ -33,7 +34,7 @@
             <div class="hero__glow" aria-hidden="true"></div>
             <div class="container hero__content">
                 <div class="hero__text">
-                    <span class="hero__eyebrow">¡Hola, bienvenido! Soy</span>
+                    <span class="hero__eyebrow" id="hero-eyebrow">¡Hola, bienvenido! Soy</span>
                     <h1 class="hero__name">Walter<br>Vallejo</h1>
                     <p class="hero__role">Estudiante de Ing. en Sistemas Inteligentes</p>
                     <p class="hero__desc">Estudiante de Ingeniería en Sistemas Inteligentes en la Universidad Tecnológica ECOTEC, Guayaquil. Apasionado por la tecnología, la IA y el desarrollo de software.</p>
@@ -52,7 +53,7 @@
                             src="img/perfil.jpg"
                             alt="Walter Richard Vallejo Montero"
                             class="hero__avatar"
-                            onerror="this.style.display='none'; document.getElementById('avatar-placeholder').style.display='flex';"
+                            id="hero-avatar"
                         >
                         <div class="hero__avatar-placeholder" id="avatar-placeholder">WV</div>
                     </div>
@@ -217,43 +218,46 @@
                     <!--
                         INSTRUCCIÓN: Reemplaza img/proyecto1.jpg con una captura de tu proyecto.
                     -->
-                    <article class="project-card">
+                    <article class="project-card" data-project-id="1">
                         <div class="project-card__img-wrap project-card__img-wrap--1">
+                            <button type="button" class="project-card__fav" data-project-id="1" aria-label="Marcar proyecto como favorito">☆</button>
                             <img src="img/proyecto1.jpg" alt="Análisis EDA Exportaciones" class="project-card__img">
                             <div class="project-card__overlay">
                                 <a href="#" class="project-card__link">Ver proyecto →</a>
                             </div>
                         </div>
                         <div class="project-card__body">
-                            <span class="project-card__tag">SQL Server · EDA</span>
+                            <span class="project-card__tag" data-original-tag="SQL Server · EDA">SQL Server · EDA</span>
                             <h3 class="project-card__title">Análisis EDA — Exportaciones No Petroleras del Ecuador</h3>
                             <p class="project-card__desc">Exploración de datos (EDA) de las exportaciones ecuatorianas no petroleras de los últimos 5 años con SQL: CTEs, funciones de ventana RANK/LAG e índice HHI de concentración de mercado.</p>
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-project-id="2">
                         <div class="project-card__img-wrap project-card__img-wrap--2">
+                            <button type="button" class="project-card__fav" data-project-id="2" aria-label="Marcar proyecto como favorito">☆</button>
                             <img src="img/proyecto2.jpg" alt="Proyecto 2" class="project-card__img">
                             <div class="project-card__overlay">
                                 <a href="#" class="project-card__link">Ver proyecto →</a>
                             </div>
                         </div>
                         <div class="project-card__body">
-                            <span class="project-card__tag">Sistemas Inteligentes</span>
+                            <span class="project-card__tag" data-original-tag="Sistemas Inteligentes">Sistemas Inteligentes</span>
                             <h3 class="project-card__title">Proyecto Académico — Sistemas Inteligentes</h3>
                             <p class="project-card__desc">Proyecto desarrollado en el marco de la carrera de Ingeniería en Sistemas Inteligentes en ECOTEC, aplicando conceptos de programación y análisis de sistemas.</p>
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-project-id="3">
                         <div class="project-card__img-wrap project-card__img-wrap--3">
+                            <button type="button" class="project-card__fav" data-project-id="3" aria-label="Marcar proyecto como favorito">☆</button>
                             <img src="img/proyecto3.jpg" alt="Portafolio Web" class="project-card__img">
                             <div class="project-card__overlay">
                                 <a href="https://github.com/RichardValle06/portafolio-wvallejo" class="project-card__link" target="_blank" rel="noopener noreferrer">Ver en GitHub →</a>
                             </div>
                         </div>
                         <div class="project-card__body">
-                            <span class="project-card__tag">HTML · CSS · GitHub</span>
+                            <span class="project-card__tag" data-original-tag="HTML · CSS · GitHub">HTML · CSS · GitHub</span>
                             <h3 class="project-card__title">Portafolio Personal Web</h3>
                             <p class="project-card__desc">Diseño y desarrollo de este portafolio con HTML5 semántico y CSS3: variables CSS, Flexbox, efectos hover y animaciones. Alojado en GitHub Pages.</p>
                         </div>
@@ -288,8 +292,8 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- Formulario visual — no envía datos realmente -->
-                    <form class="contact__form" onsubmit="return false;">
+                    <!-- Formulario validado con JavaScript (ver script.js). No envía datos a un servidor real. -->
+                    <form class="contact__form" id="contact-form" novalidate>
                         <div class="form-group">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre completo">
@@ -303,6 +307,7 @@
                             <textarea id="mensaje" name="mensaje" class="form-textarea" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
                         </div>
                         <button type="submit" class="btn btn--primary btn--full">Enviar mensaje</button>
+                        <p id="form-feedback" class="form-feedback" role="alert"></p>
                     </form>
                 </div>
             </div>
@@ -313,49 +318,21 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container footer__inner">
-            <p class="footer__copy">© 2026 Walter Richard Vallejo Montero</p>
+            <div>
+                <p class="footer__copy">© 2026 Walter Richard Vallejo Montero</p>
+                <p class="footer__visits" id="visit-counter"></p>
+            </div>
             <a href="https://github.com/RichardValle06" class="footer__github" target="_blank" rel="noopener noreferrer">
                 Ver perfil en GitHub →
             </a>
         </div>
     </footer>
 
-    <script>
-        // ── Smooth scroll para los enlaces de navegación ──
-        document.querySelectorAll('a[href^="#"]').forEach(function(enlace) {
-            enlace.addEventListener('click', function(e) {
-                var destino = document.querySelector(this.getAttribute('href'));
-                if (destino) {
-                    e.preventDefault();
-                    destino.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+    <!-- ===================== BOTÓN VOLVER AL INICIO ===================== -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Volver al inicio">↑</button>
 
-        // ── Sombra en el header al hacer scroll ──
-        window.addEventListener('scroll', function() {
-            var header = document.getElementById('header');
-            if (window.scrollY > 20) {
-                header.classList.add('header--scrolled');
-            } else {
-                header.classList.remove('header--scrolled');
-            }
-        });
-
-        // ── Animación de barras de habilidades al entrar en viewport ──
-        var skillSection = document.querySelector('.habilidades');
-        if (skillSection && 'IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.25 });
-            observer.observe(skillSection);
-        }
-    </script>
+    <!-- Toda la lógica de JavaScript vive en un archivo externo -->
+    <script src="script.js"></script>
 
 </body>
 </html>
