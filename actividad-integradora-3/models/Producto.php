@@ -72,6 +72,32 @@ class Producto
         return $stmt->rowCount() > 0;
     }
 
+    /** Actualiza un producto existente. Devuelve true si modificó una fila. */
+    public function actualizar(int $id, array $datos): bool
+    {
+        $sql = "UPDATE productos
+                   SET nombre = :nombre,
+                       categoria = :categoria,
+                       precio = :precio,
+                       cantidad = :cantidad,
+                       proveedor_email = :proveedor_email,
+                       descripcion = :descripcion
+                 WHERE id = :id";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':nombre'          => $datos['nombre'],
+            ':categoria'       => $datos['categoria'],
+            ':precio'          => $datos['precio'],
+            ':cantidad'        => $datos['cantidad'],
+            ':proveedor_email' => $datos['proveedor_email'] ?: null,
+            ':descripcion'     => $datos['descripcion'] ?: null,
+            ':id'              => $id,
+        ]);
+
+        return $stmt->rowCount() > 0;
+    }
+
     /** Totales rápidos para el panel principal. */
     public function contarProductos(): int
     {
