@@ -78,6 +78,75 @@ switch ($accion) {
         header('Location: ProductoController.php?accion=listar');
         exit;
 
+    case 'editar':
+        $id = (int) ($_GET['id'] ?? 0);
+        $producto = $productoModelo->obtenerPorId($id);
+
+        if (!$producto) {
+            $_SESSION['errores'] = ['El producto que intentas editar no existe.'];
+            header('Location: ProductoController.php?accion=listar');
+            exit;
+        }
+
+        require __DIR__ . '/../views/inventario/editar.php';
+        break;
+
+    case 'actualizar':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: ProductoController.php?accion=listar');
+            exit;
+        }
+
+        $id        = (int) ($_POST['id'] ?? 0);
+        $errores   = [];
+
+        $nombre      = trim($_POST['nombre'] ?? '');
+        $categoria   = trim($_POST['categoria'] ?? '');
+        $precio      = $_POST['precio'] ?? '';
+        $cantidad    = $_POST['cantidad'] ?? '';
+        $email       = trim($_POST['proveedor_email'] ?? '');
+        $descripcion = trim($_POST['descripcion'] ?? '');
+
+        $largoNombre = function_exists('mb_strlen') ? mb_strlen($nombre) : strlen($nombre);
+        if ($id <= 0 || !$productoModelo->obtenerPorId($id)) {
+            $errores[] = 'El producto que intentas actualizar no existe.';
+        }
+        if ($nombre === '' || $largoNombre < 3) {
+            $errores[] = 'El nombre del producto es obligatorio (mínimo 3 caracteres).';
+        }
+        if ($categoria === '') {
+            $errores[] = 'Debes seleccionar una categoría.';
+        }
+        if ($precio === '' || !is_numeric($precio) || (float) $precio <= 0) {
+            $errores[] = 'El precio debe ser un número mayor a 0.';
+        }
+        if ($cantidad === '' || !ctype_digit((string) $cantidad) || (int) $cantidad < 0) {
+            $errores[] = 'La cantidad debe ser un número entero mayor o igual a 0.';
+        }
+        if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errores[] = 'El correo del proveedor no tiene un formato válido.';
+        }
+
+        if (!empty($errores)) {
+            $_SESSION['errores']      = $errores;
+            $_SESSION['datos_previos'] = $_POST;
+            header('Location: ProductoController.php?accion=editar&id=' . $id);
+            exit;
+        }
+
+        $productoModelo->actualizar($id, [
+            'nombre'          => $nombre,
+            'categoria'       => $categoria,
+            'precio'          => $precio,
+            'cantidad'        => $cantidad,
+            'proveedor_email' => $email,
+            'descripcion'     => $descripcion,
+        ]);
+
+        $_SESSION['mensaje'] = 'Producto actualizado correctamente.';
+        header('Location: ProductoController.php?accion=listar');
+        exit;
+
     case 'eliminar':
         $id = (int) ($_GET['id'] ?? 0);
         if ($id > 0 && $productoModelo->eliminar($id)) {
