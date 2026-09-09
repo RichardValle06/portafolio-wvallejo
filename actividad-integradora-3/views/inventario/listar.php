@@ -28,7 +28,7 @@ unset($_SESSION['mensaje'], $_SESSION['errores']);
     <nav class="app-header__nav">
         <a href="../../index.php">Inicio</a>
         <a class="activo" href="../../controllers/ProductoController.php?accion=listar">Ver inventario</a>
-        <a href="crear.php">Registrar producto</a>
+        <a href="../views/inventario/crear.php">Registrar producto</a>
     </nav>
 </header>
 
@@ -98,6 +98,8 @@ unset($_SESSION['mensaje'], $_SESSION['errores']);
                                 <td><?= $p['proveedor_email'] ? htmlspecialchars($p['proveedor_email'], ENT_QUOTES, 'UTF-8') : '—' ?></td>
                                 <td><?= htmlspecialchars(date('d/m/Y', strtotime($p['fecha_registro'])), ENT_QUOTES, 'UTF-8') ?></td>
                                 <td>
+                                    <a class="boton boton--secundario boton--pequeno"
+                                       href="../../controllers/ProductoController.php?accion=editar&id=<?= (int) $p['id'] ?>">✏️ Editar</a>
                                     <a class="boton boton--peligro boton--pequeno"
                                        href="../../controllers/ProductoController.php?accion=eliminar&id=<?= (int) $p['id'] ?>"
                                        onclick="return confirm('¿Eliminar este producto del inventario?');">🗑️ Eliminar</a>
