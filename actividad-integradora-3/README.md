@@ -66,6 +66,10 @@ cPanel no da acceso al usuario `root`. Para publicarlo ahí:
 - **Consultar inventario** (`controllers/ProductoController.php?accion=listar`): tabla HTML con
   todos los productos, buscador por nombre/categoría, y totales (cantidad de productos y valor
   total del inventario).
+- **Editar producto** (opcional, ya incluido): botón "Editar" por fila → el Controlador carga el
+  producto con el Modelo (`accion=editar`) y se lo pasa a `views/inventario/editar.php`; al
+  guardar, `accion=actualizar` valida (mismas reglas que crear) y llama a
+  `Producto::actualizar()`.
 - **Eliminar producto** (opcional, ya incluido): botón de eliminar por fila, con confirmación.
 
 ## 5. Notas de diseño MVC
